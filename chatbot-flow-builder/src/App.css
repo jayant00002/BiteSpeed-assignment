@@ -1,0 +1,10 @@
+.App {
+  display: flex;
+  height: 100vh;
+}
+
+.save-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

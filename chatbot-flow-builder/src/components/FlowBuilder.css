@@ -1,0 +1,65 @@
+/* FlowBuilder container
+.flowbuilder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* FlowBuilder title 
+.flowbuilder-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+/* FlowBuilder steps 
+.flowbuilder-steps {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+/* FlowBuilder step
+.flowbuilder-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* FlowBuilder step number
+.flowbuilder-step-number {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* FlowBuilder step label
+.flowbuilder-step-label {
+    font-size: 14px;
+    text-align: center;
+}
+
+/* FlowBuilder button
+.flowbuilder-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* FlowBuilder button:hover 
+.flowbuilder-button:hover {
+    background-color: #0056b3;
+} */
+
+.flow-builder {
+    flex: 1;
+  }
+  
