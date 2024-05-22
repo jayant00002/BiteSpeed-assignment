@@ -78,7 +78,7 @@ function FlowBuilder({ setSelectedNode, nodes, setNodes, edges, setEdges, select
           onDrop={onDrop}
           style={{ width: '100%', height: '90vh' }}
         >
-          <MiniMap />
+          {/* <MiniMap /> */}
           <Controls />
           <Background />
         </ReactFlow>

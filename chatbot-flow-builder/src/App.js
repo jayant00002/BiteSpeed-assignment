@@ -12,11 +12,9 @@ function App() {
   const [edges, setEdges] = useState([]);
 
   const saveFlow = () => {
-    
     const emptyTargetNodes = nodes.filter(
       (node) => node.type === 'textNode' && edges.filter((edge) => edge.target === node.id).length === 0
     );
-    console.log(emptyTargetNodes.length);
 
     if (emptyTargetNodes.length > 1) {
       toast.error('Cannot save Flow: More than one node has empty target handles');
@@ -39,7 +37,18 @@ function App() {
 
   return (
     <div className="App">
+      <FlowBuilder
+        setSelectedNode={setSelectedNode}
+        nodes={nodes}
+        setNodes={setNodes}
+        edges={edges}
+        setEdges={setEdges}
+        selectedNode={selectedNode}
+      />
       <div className="panel">
+        <button className="save-button" onClick={saveFlow}>
+          Save Changes
+        </button>
         {!selectedNode && <NodesPanel />}
         {selectedNode && (
           <SettingsPanel
@@ -49,17 +58,6 @@ function App() {
           />
         )}
       </div>
-      <FlowBuilder
-        setSelectedNode={setSelectedNode}
-        nodes={nodes}
-        setNodes={setNodes}
-        edges={edges}
-        setEdges={setEdges}
-        selectedNode={selectedNode}
-      />
-      <button className="save-button" onClick={saveFlow}>
-        Save Changes
-      </button>
       <ToastContainer />
     </div>
   );
