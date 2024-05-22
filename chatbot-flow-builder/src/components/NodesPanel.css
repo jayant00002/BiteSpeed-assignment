@@ -1,6 +1,4 @@
 .nodes-panel {
-    width: 200px;
-    background-color: #f4f4f4;
     padding: 10px;
   }
   
@@ -9,5 +7,10 @@
     border: 1px solid #ddd;
     margin-bottom: 10px;
     cursor: grab;
+  }
+  
+  .dndnode span {
+    display: block;
+    text-align: center;
   }
   

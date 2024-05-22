@@ -3,20 +3,19 @@ import './NodesPanel.css';
 
 function NodesPanel() {
   const onDragStart = (event, nodeType) => {
-
     event.dataTransfer.setData('application/reactflow', nodeType);
     event.dataTransfer.effectAllowed = 'move';
-    //console.log(event);
   };
 
   return (
     <aside className="nodes-panel">
+      <h3>Message</h3>
       <div
         className="dndnode input"
         onDragStart={(event) => onDragStart(event, 'textNode')}
         draggable
       >
-        Text Node
+        <span>Message</span>
       </div>
     </aside>
   );

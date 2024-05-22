@@ -1,7 +1,38 @@
 .text-node {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background: white;
-  }
-  
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: white;
+  text-align: center;
+  position: relative;
+}
+
+.text-node.selected {
+  border: 2px solid blue;
+}
+
+.node-header {
+  background-color: #e6f7ff;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+}
+
+.node-content {
+  padding: 10px;
+}
+
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background: #ddd;
+  border-radius: 50%;
+}
+
+.react-flow__handle-left {
+  left: -5px;
+}
+
+.react-flow__handle-right {
+  right: -5px;
+}

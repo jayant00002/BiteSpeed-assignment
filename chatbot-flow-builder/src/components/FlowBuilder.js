@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import ReactFlow, {
   addEdge,
   applyNodeChanges,
@@ -15,23 +15,20 @@ const nodeTypes = {
   textNode: TextNode,
 };
 
-const initialNodes = [];
-const initialEdges = [];
-
-function FlowBuilder({ setSelectedNode, elements, setElements }) {
+function FlowBuilder({ setSelectedNode, nodes, setNodes, edges, setEdges, selectedNode }) {
   const onNodesChange = useCallback(
-    (changes) => setElements((els) => applyNodeChanges(changes, els)),
-    [setElements]
+    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    [setNodes]
   );
 
   const onEdgesChange = useCallback(
-    (changes) => setElements((els) => applyEdgeChanges(changes, els)),
-    [setElements]
+    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+    [setEdges]
   );
 
   const onConnect = useCallback(
-    (params) => setElements((els) => addEdge(params, els)),
-    [setElements]
+    (params) => setEdges((eds) => addEdge(params, eds)),
+    [setEdges]
   );
 
   const onDragOver = (event) => {
@@ -50,28 +47,28 @@ function FlowBuilder({ setSelectedNode, elements, setElements }) {
     };
 
     const newNode = {
-      id: `${type}-${elements.length}`,
+      id: `${type}-${nodes.length}`,
       type,
       position,
-      data: { label: `${type} node` },
+      data: { label: 'Message' },
     };
 
-    setElements((els) => els.concat(newNode));
+    setNodes((nds) => nds.concat(newNode));
   };
+
   const onNodeClick = (event, node) => setSelectedNode(node);
-
-
-    // const onElementClick = (event, element) => {
-    //     console.log('element clicked:', element);
-    //     setSelectedNode(element)
-    // };
 
   return (
     <div className="flow-builder">
       <ReactFlowProvider>
         <ReactFlow
-          nodes={elements}
-          edges={elements}
+          nodes={nodes.map((node) => ({
+            ...node,
+            style: {
+              border: node.id === (selectedNode && selectedNode.id) ? '2px solid blue' : '1px solid #ddd',
+            },
+          }))}
+          edges={edges}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           onConnect={onConnect}
